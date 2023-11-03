@@ -154,3 +154,11 @@ VALUES
 --3.	Create new branch named "feat/add-column-price"
 ALTER TABLE item
 ADD COLUMN item_price DECIMAL(10, 2);
+
+--4	Create new branch named "feat/update-delete-inactive"
+UPDATE hero
+SET is_active = false
+WHERE hero_id = 1;
+
+DELETE FROM item
+WHERE hero_id = 1;
