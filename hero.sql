@@ -168,3 +168,10 @@ SELECT player.player_name, hero.hero_name
 FROM player
 INNER JOIN hero ON player.hero_id = hero.hero_id
 WHERE hero.is_active = true;
+
+--6	Create new branch named "feat/select-heroes-archers"
+SELECT hero.hero_name
+FROM hero
+INNER JOIN class ON hero.class_id = class.class_id
+WHERE class.class_name LIKE LOWER('%Archer%');
+
