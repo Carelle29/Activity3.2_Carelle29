@@ -175,3 +175,10 @@ FROM hero
 INNER JOIN class ON hero.class_id = class.class_id
 WHERE class.class_name LIKE LOWER('%Archer%');
 
+--7 	Create new branch named "feat/select-avg-playerlevel-per-class"
+SELECT class.class_name, AVG(player.player_level) AS avg_level
+FROM class
+JOIN hero ON class.class_id = hero.class_id
+JOIN player ON hero.hero_id = player.hero_id
+GROUP BY class.class_name
+ORDER BY avg_level DESC;
